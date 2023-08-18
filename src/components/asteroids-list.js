@@ -1,6 +1,8 @@
+import { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { AsteroidsContext } from '../hocs/with-asteroids';
 import Asteroid from './asteroid-item';
 import ControlPanel from './control-panel';
 
@@ -31,8 +33,9 @@ const Container = styled.div`
   }
 `
 
-const AsteroidsList = ({ status, asteroids, getMoreAsteroids, addToCart }) => {
+const AsteroidsList = () => {
   const location = useLocation()
+  const { status, asteroids, hasMoreAsteroids, getMoreAsteroids, addToCart } = useContext(AsteroidsContext)
 
   return (
       <Container>
@@ -55,12 +58,13 @@ const AsteroidsList = ({ status, asteroids, getMoreAsteroids, addToCart }) => {
             ))
           }
           {
-            location.pathname === "/" && (
+            location.pathname === "/" && hasMoreAsteroids 
+              ? (
               <Button 
                 onClick={getMoreAsteroids}
                 className={status === "loading" ? "disabled" : ""}
               >Загрузить еще</Button>
-            )
+              ) : null
           }
           </div>
       </Container>

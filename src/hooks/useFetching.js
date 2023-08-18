@@ -10,7 +10,7 @@ const useFetching = (callback) => {
             await callback(...args)
             setStatus("recievied")
         } catch (error) {
-            setError(error)
+            setError(error.message)
             setStatus("rejected")
         }
     }

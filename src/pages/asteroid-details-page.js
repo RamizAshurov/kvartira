@@ -29,7 +29,7 @@ const AsteroidDetailsPage = () => {
         return <h2>Такого астероида не существует</h2>
 
     if (status === "rejected")
-        return <h2 style={{color: "tomato"}}>Error!!!</h2>
+        return <h2 style={{color: "tomato"}}>{error}</h2>
 
     const { name, close_approach_data } = asteroid
 

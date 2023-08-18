@@ -33,7 +33,7 @@ const CloseApproachDataCard = (props) => {
                     lineHeight: "1.2",
                     margin: "0 0 8px"
                 }}
-            >{`${date.getDate() + 1} ${monthMap[date.getMonth() + 1]} ${date.getFullYear()}`}</h4>
+            >{`${date.getDate() + 1} ${monthMap[date.getMonth()]} ${date.getFullYear()}`}</h4>
             <ul>
                 {
                     [
